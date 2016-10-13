@@ -21,7 +21,6 @@
 <tr><td colspan="2"><input id="submit" type="submit" value="Submit"/></td></tr>
 </table>
 </form>
-<a id="register" href="Mregistration.php">NEW USER?PLEASE CLICK HERE TO REGISTER</a>
 </div>
 <div style="clear:both;width:100%;height:200px;"></div>
 </body>
