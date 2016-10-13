@@ -5,6 +5,8 @@
 <body>
 <?php
 @session_start();
+if(isset ($_SESSION["user_status"]) )
+{
 $sem=$_SESSION['sem'];
 $branch=$_SESSION['branch'];
 include_once("Fdatabase.php"); 
@@ -19,9 +21,14 @@ $row=mysqli_fetch_array($result);
 echo '&nbsp<span><a href="FDisplay.php?subject='.$row["s_id"].'">"'.$row["s_name"].'"</a></span>&nbsp';
 $count++;
 }
+echo "<div>";
+include_once("FNewTopic.php");
+echo "</div>";
+echo '<a href="FLogout.php">Logout</a>';
+}
+else
+{
+	echo '<a id="cata" href=FLogin.php />Click here to go to login again</a>';
+}
 ?>
-<div>
-<?php include_once("FNewTopic.php");?>
-</div>
-<a href="FLogout.php">Logout</a>
 </body>
