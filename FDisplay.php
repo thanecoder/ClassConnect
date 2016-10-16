@@ -40,42 +40,43 @@ function add()
 	display();
   }
 }
-function dsplyq(id)
-{
-	var sid=id;
-	http1.open("GET","FDisplay.php?sid="+sid,true);
-	http1.send();
-	http1.onreadystatechange=function() {
-    if(http1.readyState == 4) {
-	  document.getElementById('content').innerHTML=http1.responseText;
-    }
-  }
-}
 </script>
-<title>Subjects</title>
 </head>
 <body>
 <?php
 @session_start();
-if(isset ($_SESSION["user_status"]) )
+if(isset ($_SESSION['user_status']) )
 {
-$sem=$_SESSION['sem'];
-$branch=$_SESSION['branch'];
-include_once("Fdatabase.php"); 
-$sql="select * from subjects where sem='$sem' and branch='$branch'";
+$sub=$_GET['sid'];
+include_once("Fdatabase.php");
+$sql="select * from subjects where s_id='$sub'";
 $result=mysqli_query($conn,$sql);
+$result=mysqli_query($conn,$sql);
+$rowcount=mysqli_num_rows($result);
+$count=0;
+if($rowcount>0)
+{
+$row=mysqli_fetch_array($result);
+echo '&nbsp<span id="subject">'.$row["s_id"].'</span>
+&nbsp<span>'.$row["s_name"].'</span>&nbsp';
+$count++;
+}
+echo '<div id="content2">';
+$sql="select * from questions where s_id='$sub'";
 $result=mysqli_query($conn,$sql);
 $rowcount=mysqli_num_rows($result);
 $count=0;
 while($count<$rowcount)
 {
+$i=$count+1;
 $row=mysqli_fetch_array($result);
-echo '&nbsp<span id="'.$row["s_id"].'" onclick="dsplyq(this.id)">'.$row["s_name"].'</span>&nbsp';
+echo '<a href="FAnswers.php?sid='.$sub.'&qid='.$row['q_id'].'">'.$row["question"].'</a><br>';
 $count++;
 }
-echo '<div id="content">';
 echo '</div>';
-
+echo '<span onclick="display2()">Add new question</span>';
+echo '<div id="nq"></div><div id="result"></div>';
+echo '<span id="logout"><a href="FLogout.php">Logout</a></span>';
 }
 else
 {
@@ -83,3 +84,4 @@ else
 }
 ?>
 </body>
+</html>
