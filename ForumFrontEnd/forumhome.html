@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!-- Many parts here would be dynamically generated. I'll just give a layout(the static part) and an instance of how dynamically generated content will be viewed.
+Places where only an instance is hard-coded starts with a "########" comment and end with a "========" comment-->
+<html>
+	
+	<head>
+		<meta charset = "utf-8">
+		<meta name = "viewport" content = "initial-scale = 1, width = device-width">
+		<meta name = "theme-color" content = "#000000">
+		<title>Forum home alpha</title>
+		<link rel = "stylesheet" href = "bootstrap-3.3.7/css/bootstrap.min.css">
+		<link rel = "stylesheet" href = "customCSS/forum.css">
+	</head>
+
+	<body>
+		<!-- Navbar begins -->
+		<nav class = "navbar myNav navbar-fixed-top">
+			<div class = "container-fluid col-lg-8 col-lg-offset-2">
+				<div class = "navbar-header">
+					<button type = "button" class = "navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar" id = "forDropdown">
+						<span class = "glyphicon glyphicon-list"></span>
+					</button>
+					<a class = "navbar-brand" href = "#">Class connect</a>
+				</div>
+		<!-- The dark navbar -->
+				<div class = "collapse navbar-collapse" id = "myNavbar">
+					<ul class = "nav navbar-nav">
+						<li class = "dropdown">
+							<a class = "dropdown-toggle" data-toggle = "dropdown" href = "#"> Notice<span class = "caret"></span></a>
+							<ul class = "dropdown-menu">
+								<li><a href = "#">Upcoming events</a></li>
+								<li><a href = "#">Urgent notices</a></li>
+								<li><a href = "#">Add notice</a></li>
+							</ul>
+						</li>
+						<li class = "dropdown">
+							<a class = "dropdown-toggle" data-toggle = "dropdown" href = "#"> Submission<span class = "caret"></span></a>
+							<ul class = "dropdown-menu">
+								<li><a href = "#">Calender</a></li>
+								<li><a href = "#">Submit assignments</a></li>
+								<li><a href = "#">Your submissions</a></li>
+							</ul>
+						</li>
+						<li class = "dropdown active">
+							<a class = "dropdown-toggle" data-toggle = "dropdown" href = "#"> Forum<span class = "caret"></span></a>
+							<ul class = "dropdown-menu">
+								<li><a href = "#">Recent questions</a></li>
+								<li><a href = "#">Top questions</a></li>
+								<li><a href = "#">Your contribution</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class = "nav navbar-nav navbar-right">
+						<button type = "button" class = "btn btn-default contrastEffect" data-toggle = "modal" data-target = "#profileModal">Profile <span class = "glyphicon glyphicon-user"></span></button>
+						<button type = "button" class = "btn btn-default contrastEffect" data-toggle = "modal" data-target = "#logoutModal">Logout <span class = "glyphicon glyphicon-log-out"></span></button>
+						
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- The dark navbar rises. -->
+  		<!-- logout Modal -->
+		<div class = "modal fade" id = "logoutModal" role = "dialog">
+			<div class = "modal-dialog">
+				<!-- Modal content-->
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+						<h4 class = "modal-title">Logout</h4>
+					</div>
+					<div class = "modal-body">
+						<p>Are you sure you want to logout?</p>
+					</div>
+					<div class = "modal-footer">
+						<button type = "button" class = "btn btn-default contrastEffect">Yes</button>
+						<button type = "button" class = "btn btn-default" data-dismiss = "modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Profile Modal -->
+		<div class = "modal fade" id = "profileModal" role = "dialog">
+			<div class = "modal-dialog">
+				<!-- Modal content-->
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+						<h4 class = "modal-title">Profile</h4>
+					</div>
+					<div class = "modal-body">
+
+<!-- ################ PROFILE DYNAMIC SECTION ################ -->
+<button class = "btn btn-default contrastEffect"><span class = "glyphicon glyphicon-refresh"></span></button>
+<hr>
+<div class = "container-fluid">
+	<img class = "img-thumbnail col-lg-5" src = "fcrit.jpg">
+	<div class = "col-lg-5 col-lg-offset-2">
+		<button type = "button" class = "btn">Upload pic</button>
+		<h3 id = "username">Kartik Jain</h3>
+		<h5 id = "description">Something about me. Blah blah blah</h5>
+		<h4>Questions: <span class = "badge">11</span></h4>
+		<h4>Answers: <span class = "badge">6</span></h4>
+	</div>
+	<hr>
+	<h3>Answers:</h3>
+	<a href = "#answerModal" data-toggle = "modal">Answer 1</a><span class = "badge">200</span>
+	<br>
+	<a href = "#answerModal" data-toggle = "modal">Answer 2</a><span class = "badge">-15</span>
+	<br>
+	......
+	<hr>
+	<h3>Questions:</h3>
+	<a href = "#questionModal" data-toggle = "modal">Question 1 </a><span class = "badge">-10</span>
+	<br>
+	<a href = "#questionModal" data-toggle = "modal">Question 2 </a><span class = "badge">35</span>
+	<br>
+	......
+</div>
+<!-- ================ END PROFILE DYNAMIC SECTION ================ -->
+
+<!-- ################ QUESTION THREAD MODAL ################ -->
+<div class = "modal fade" id = "questionModal" role = "dialog">
+	<div class = "modal-dialog">
+		<!-- Modal content-->
+		<
+		<li class = "nav active"><a href = "#A" data-toggle = "tab">THE</a></li>div class = "modal-content">
+			<div class = "modal-header">
+				<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+				<h4 class = "modal-title">Question</h4>
+				<button class = "glyphicon glyphicon-thumbs-up"></button>
+				<button class = "glyphicon glyphicon-thumbs-down"></button>
+				<span class = "badge">33</span>
+			</div>
+			<div class = "modal-body">
+				<p>Answer 1</p>
+				<br>
+				<button class = "glyphicon glyphicon-thumbs-up"></button><button class = "glyphicon glyphicon-thumbs-down"></button>
+				<span class = "badge">33</span>
+				<hr>
+				<p>Answer 2</p>
+				<br>
+				<button class = "glyphicon glyphicon-thumbs-up"></button><button class = "glyphicon glyphicon-thumbs-down"></button>
+				<span class = "badge">33</span>
+				<hr>
+				......
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================ END QUESTION THREAD MODAL ================ -->
+
+<!-- ################ ANSWER THREAD MODAL ################ -->
+<div class = "modal fade" id = "answerModal" role = "dialog">
+	<div class = "modal-dialog">
+		<!-- Modal content-->
+		<div class = "modal-content">
+			<div class = "modal-header">
+				<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+				<h4 class = "modal-title">Question</h4>
+				<button class = " btn glyphicon glyphicon-thumbs-up"></button>
+				<button class = "btn glyphicon glyphicon-thumbs-down"></button>
+				<span class = "badge">33</span>
+			</div>
+			<div class = "modal-body">
+				<p>Answer</p>
+				<br>
+				<button class = "btn glyphicon glyphicon-thumbs-up"></button>
+				<button class = "btn glyphicon glyphicon-thumbs-down"></button>
+				<span class = "badge">33</span>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================ END ANSWER THREAD MODAL ================ -->
+
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- Phew. Navbar ka sab khatam -->
+		<br><br>
+
+		<!--Buttons to add question and answers and collapse/expand sections-->
+		<button id = "contribute" class = "btn btn-default"><span class = "glyphicon glyphicon-plus"></span></button>
+		<button id = "addQ" class = "btn btn-default" data-toggle = "modal" data-target = "#addQForm"><span class = "glyphicon glyphicon-question-sign"></span></button>
+		<button id = "addA" class = "btn btn-default" data-toggle = "modal" data-target = "#addAForm"><span class = "glyphicon glyphicon-pencil"></span></button>
+		<button id = "collapseExpand" class = "btn btn-default"><span class = "glyphicon glyphicon-collapse-up"></span></button>
+
+
+		<div class = "container-fluid jumbotron">
+            <div class = "row">
+                <div class = "col-lg-4 ">
+                	<div class = "modal-dialog allContentModals">
+                    	<div class = "modal-content">
+                    		<div class = "modal-header titles" id = "topQTitle">Top Questions</div>
+                    		<div class = "modal-body bodyContent" id = "topQBody">
+
+<!-- ################ TOP QUESTIONS DYNAMIC SECTION ################ -->
+<p>Top questions go here</p>
+<hr>
+<div class = "container">
+	<ul class = "nav nav-tabs">
+		<li class = "nav active"><a href = "#A" data-toggle = "tab">ALL</a></li>
+		<li class = "nav"><a href = "#B" data-toggle = "tab">THE</a></li>
+		<li class = "nav"><a href = "#C" data-toggle = "tab">TOPICS</a></li>
+	</ul>
+
+	<div class = "tab-content">
+		<div class = "tab-pane fade in active" id = "A">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.4</a>
+			<hr>
+			.....
+		</div>
+		<div class = "tab-pane fade" id = "B">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.4</a>
+			<hr>
+			.....
+		</div>
+		<div class = "tab-pane fade" id = "C">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.4</a>
+			<hr>
+			.....
+		</div>
+	</div>
+</div>
+<!-- ================ END TOP QUESTIONS DYNAMIC SECTION ================ -->
+
+                    		</div>
+ 						</div>
+ 					</div>
+                </div>
+
+                <div class = "col-lg-4">
+                    <div class = "modal-dialog allContentModals">
+                    	<div class = "modal-content">
+                    		<div class = "modal-header titles" id = "relatedQTitle">Related Questions</div>
+                    		<div class = "modal-body bodyContent" id = "relatedQBody">
+
+<!-- ################ RELATED QUESTIONS DYNAMIC SECTION ################ -->
+<p>Tab pane with subjects for students questions go here</p>
+<hr>
+<div class = "container">
+	<ul class = "nav nav-tabs">
+		<li class = "nav active"><a href = "#OS" data-toggle = "tab">OS</a></li>
+		<li class = "nav"><a href = "#MP" data-toggle = "tab">MP</a></li>
+		<li class = "nav"><a href = "#CN" data-toggle = "tab">CN</a></li>
+	</ul>
+
+	<div class = "tab-content">
+		<div class = "tab-pane fade in active" id = "OS">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 1.4</a>
+			<hr>
+			.....
+		</div>
+		<div class = "tab-pane fade" id = "MP">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 2.4</a>
+			<hr>
+			.....
+		</div>
+		<div class = "tab-pane fade" id = "CN">
+			<br>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.1</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.2</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.3</a>
+			<hr>
+			<a href = "#questionModal" data-toggle = "modal">Question 3.4</a>
+			<hr>
+			.....
+		</div>
+	</div>
+</div>
+<!-- ================ END RELATED QUESTIONS DYNAMIC SECTION ================ -->
+
+                    		</div>
+ 						</div>
+ 					</div>
+                </div>
+                <div class = "col-lg-4">
+                    <div class = "modal-dialog allContentModals">
+                    	<div class = "modal-content">
+                    		<div class = "modal-header titles" id = "peopleTitle">Ask people</div>
+                    		<div class = "modal-body bodyContent" id = "peopleBody">
+
+<!-- ################ PEOPLE DYNAMIC SECTION ################ -->
+<p>People online and top contributers go here</p>
+<h3>Top contributers:</h3>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<h3>Online:</h3>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<img class = "img-thumbnail" src = "fcrit.jpg"><h6>Name</h6>
+<!-- ================ END PEOPLE DYNAMIC SECTION ================ -->
+
+<!-- ################ ADD QUESTION ################ -->
+<div class = "modal fade" id = "addQForm" role = "dialog">
+	<div class = "modal-dialog">
+		<!-- Modal content-->
+		<div class = "modal-content">
+			<div class = "modal-header">
+				<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+				<h4 class = "modal-title">Add question</h4>
+			</div>
+			<div class = "modal-body">
+				<form class = "form-group">
+					<input type = "text" class = "form-control" placeholder = "Enter question here">
+					<select class = "form-control">
+						<option>MP</option>
+						<option>OS</option>
+						<option>CN</option>
+						<option>...</option>
+					</select>
+					<button type = "button" class = "btn btn-primary contrastEffect">Add Question <span class = "glyphicon glyphicon-question-sign"></span></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================ END ADD QUESTION ================ -->
+
+<!-- ################ ADD ANSWER ################ -->
+<div class = "modal fade" id = "addAForm" role = "dialog">
+	<div class = "modal-dialog">
+		<!-- Modal content-->
+		<div class = "modal-content">
+			<div class = "modal-header">
+				<button type = "button" class = "close" data-dismiss = "modal">&times;</button>
+				<h4 class = "modal-title">Add answer</h4>
+			</div>
+			<div class = "modal-body">
+				<form class = "form-group">
+					<input type = "number" class = "form-control" placeholder = "Enter Question Id here">
+					<textarea placeholder = "Enter answer here"></textarea>
+					<br>
+					<button type = "button" class = "btn btn-primary contrastEffect">Add Answer <span class = "glyphicon glyphicon-send"></span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================ END ADD ANSWER ================ -->
+                    		</div>
+ 						</div>
+ 					</div>
+                </div>
+            </div>
+        </div>
+
+        
+		<script src = "jQuery/jquery-3.1.1.min.js"></script>
+		<script src = "jQuery/jquery-2.2.4.min.js"></script>
+		<script src = "bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<script src = "customJS/forum.js"></script>
+		<noscript>Please enable JavaScript. You are missing out on all the fun stuff! Plus, this site looks weird without javascript ;p </noscript>
+	</body>
+
+</html>
