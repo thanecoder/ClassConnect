@@ -1,0 +1,501 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submission</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+  <meta name = "theme-color" content = "#5f0f4e">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Cuprum:700" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+	<!-- Date picker script  -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+  <!-- Calender Link and Js files -->
+  <link href="css/responsive-calendar.css" rel="stylesheet">
+	
+    <script src="js/responsive-calendar.js"></script>
+<script type="text/javascript">
+      $(document).ready(function () {
+
+
+        var currentYear = (new Date).getFullYear();
+        var currentMonth = (new Date).getMonth() + 1;
+        $(".responsive-calendar").responsiveCalendar({
+          time: currentYear+'-'+ currentMonth,
+          events: {
+            "2016-10-18": {"number": 5, },
+            "2013-04-26": {"number": 1, }, 
+            "2013-05-03":{"number": 1}, 
+            "2013-06-12": {}}
+        });
+
+        //Calender js Script
+        var date_input=$('input[name="date"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+        orientation:'top right',
+      };
+      date_input.datepicker(options);
+      });
+
+      $(window).scroll(function(){
+      var height = $(window).scrollTop();
+      if(height > 0)
+     $("nav").css("box-shadow", "0px 8px 8px #555");
+     else
+    $("nav").css("box-shadow", "0px 0px 0px #fff");
+
+    });
+    </script>
+
+	<style type="text/css">
+    .drop{
+      
+      background-color: inherit;
+    }
+    #colnav{
+      color:#black;
+    }
+
+
+    .custom-nav{
+      padding-top: 0.5%;
+      height:10%;
+      width:100%;
+      background: rgba(0,0,0,0.75);
+      color:#fff;
+    }
+		.navbar-brand{
+			font-family: 'Lobster', cursive;
+			font-size: 3em;
+      color:#fff !important;
+		}
+    .navbar-brand:hover{
+      color:black !important;
+
+    }
+    .hovera a{
+    border-bottom: 5px solid rgba(0,0,0,0);
+    border-radius: 5px 5px 0px 0px;
+    transition: all .5s ease-in .2s;
+    color:#fff;
+    }
+    .hovera a:hover,.hovera a:active,.activecl a{
+      border-color:rgb(198, 121, 5);
+      color:black !important;
+      background-color: #fff;
+    }
+    ul.navbar-nav >li:hover{
+      /*border-bottom: 5px solid #e52a6f; */
+      background-color: transparent;
+    }
+
+		#header{
+			font-family: 'Cuprum', sans-serif;
+			font-size: 2.2em;
+			text-align: center;
+			text-shadow: 1px 1px 4px #000;
+      background: inherit;
+      color:#000;
+      opacity: 0.9;
+		}
+
+		table.submission-table > tr{
+			font-family: 'Play', sans-serif;
+
+		}
+    /*.modal-header{
+      background-color: #675682;
+      color:#fff;
+    }*/
+    .status-box{
+      background-color:rgba(95,15,78,0.75);
+      z-index: 1;
+      text-align: center;
+     /* -webkit-filter : hue-rotate(180deg);
+     filter : hue-rotate(180deg); */
+    }
+    .stat_container{
+      float:left;
+      margin-top: 5%;
+      margin-left: 5%;  
+      color:#fff;
+      padding-left: 5%;
+      padding-bottom: 7%;
+    }
+    .stat_caption{
+      color:#fff;
+      font-family: 'Amaranth', sans-serif;
+      font-size:2em;
+    }
+    .status{
+      border-radius: 50%;
+      text-align: center;
+      padding-top: 20%;
+      padding-bottom: 0;
+      color:#fff;
+      background-color: rgba(95,15,78,0.8.5);
+      box-shadow: 8px 5px 5px rgba(95,15,78,0.9);
+      font-family: 'Exo 2', sans-serif;
+      font-size: 3.5em;
+      border: 5px solid #000;
+      min-height: 150px;
+      min-width:150px;
+      float:left;
+      margin-bottom: 10%;
+  
+    }
+		html { 
+        background: url(fcrit.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        opacity: 0.9;
+		}
+    button{
+      color:#fff;
+      background-color: rgb(247, 153, 12);
+    }
+    .hamburger{
+      color:#fff;
+      background-color: #000;
+      font-size: 2em;
+    }
+
+    #int-nav{
+      background:rgba(0,0,0,0.75);
+      max-width: 60%;
+      margin-left:20% ;
+      margin-top:0%;
+      border-radius:5px 0px 5px 0px;
+      border-bottom:3px solid rgb(247, 153, 12);
+    }
+    #int-nav li{
+      width:33%;
+      height:100%;
+    }
+	</style>
+</head>
+<body>
+
+<!-- Navbar -->
+	<nav class="navbar custom-nav navbar-fixed-top" id="my-navbar">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#colnav">
+					<span class="icon-bar hamburger"></span>
+					<span class="icon-bar hamburger"></span>
+					<span class="icon-bar hamburger"></span>
+				</button>
+					<a href="#" class="navbar-brand pull-left"><emp>Class Connect</emp></a>
+			</div>
+			<div class="collapse navbar-collapse" id="colnav">
+				
+				<ul class="nav navbar-nav" >
+					<li class="hovera"><a  href="#">Home</a></li>
+					<li class="hovera"><a  href="#">Notice</a></li>
+        	<li class="hovera activecl"><a  href="#">Submission</a></li>
+          <li class="hovera"><a  href="#">Forum</a></li>
+        	<!--<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 3<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="drop"  href="#">Page 1-1</a></li>
+            <li><a class="drop"  href="#">Page 1-2</a></li>
+            <li><a class="drop"  href="#">Page 1-3</a></li>
+          </ul>
+        </li>-->
+				</ul>
+        <button type="button" class="btn  navbar-btn navbar-right" data-toggle="modal" data-target="#confirm-lo">Logout <span class="glyphicon glyphicon-log-out"></span></button>
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar end -->
+
+	<!-- Logout Modal -->
+	<div class="modal fade" tabindex="-1" id="confirm-lo">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+       	</button>
+        <h4 class="modal-title"><p>Are you sure you want to Logout?</p></h4>
+      </div>
+      <div class="modal-body">
+      	<center>
+       		<button type="button" class="btn btn-default btn-md" >Yes</button>
+       			&nbsp;&nbsp;&nbsp;
+       		<button type="button" class="btn btn-default btn-md" data-dismiss="modal">No</button>
+       </center>
+      </div>
+    </div>
+  </div>
+	</div>
+	<!-- Modal end -->
+	<br><br><br><br>
+
+<div id="int-nav"> 
+<center><ul  class="nav nav-pills">
+      <li id="li1" >
+        <a  href="#list" data-toggle="tab">Assignments</a>
+      </li >
+      <li id="li2" ><a href="#submitted" data-toggle="tab">Submitted</a>
+      </li>
+      <li id="li3" " class="active"><a href="#submit" data-toggle="tab">Submit</a>
+      </li>
+    </ul></center>
+</div>
+      <!--<div class="tab-content clearfix">
+        <div class="tab-pane active" id="1b">
+          <h3>Same as example 1 but we have now styled the tab's corner</h3>
+        </div>
+        <div class="tab-pane" id="2b">
+          <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+        </div>
+        <div class="tab-pane" id="3b">
+          <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+        </div>
+          <div class="tab-pane" id="4b">
+          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+        </div>
+      </div>
+  </div>-->
+	<div class="row ">
+	  <!--Partition- 1 -->
+ 		<div class="col-sm-12 col-md-3" style="margin-left:1%" >
+ 			<div class="modal-dialog modal-sm">
+ 				<div class="modal-content">
+ 					<div class="modal-header" id="header">Calender</div>
+ 						
+ 				</div>
+ 			</div>
+ 			<div class="responsive-calendar">
+        <div class="controls">
+          <a class="pull-left" data-go="prev"><span class=" glyphicon glyphicon-chevron-left">Prev</span></a>
+     	    <h4><span data-head-year></span> <span data-head-month></span></h4>
+          <a class="pull-right" data-go="next">Next<span class=" glyphicon glyphicon-chevron-right"></span></a>
+        </div><hr/>
+        <div class=" row day-headers">
+          <div class="day header">Mon</div>
+          <div class="day header">Tue</div>
+          <div class="day header">Wed</div>
+          <div class= "day header">Thu</div>
+          <div class="day header">Fri</div>
+          <div class="day header">Sat</div>
+          <div class="day header">Sun</div>
+        </div>  
+        <div class="days" data-group="days">
+          
+        </div>
+      </div>
+      
+      <!-- Responsive calendar - END -->
+    </div>
+
+ 		<!--Partition- 2 -->
+
+ 		<div class="col-sm-12 col-md-6" style="margin-left:-1.6%;margin-right: -0.7%" >
+ 			<div class="container-fluid">
+     
+
+ 				<!-- Submission Form -->
+ 				<div class="modal-dialog tab-content clearfix">
+ 					<div class="modal-content tab-pane active" id="submit">
+ 						<form method="post" action="#">    <!-- Submission form Action -->
+ 							<div class="modal-header" id="header"> Submission Portal </div>   <!--Modal Header-->
+ 							<div class="modal-body">          <!-- Modal Body-->
+ 								<div class="form-group">
+ 								<!-- Dyanamic Creation of Div(dropdown menu) from db (this is static)-->
+ 									<table  class="table  submission-table ">   <!-- Table -->
+ 										<tr>
+ 											<td>Subject :</td>
+ 											<td>
+ 											 	<select class="form-control" id="Subject">
+ 											 		<option>------------SELECT------------</option>
+  											  <option>Microprocessor</option>
+  											  <option>Operating System</option>
+  											  <option>Computer Networks</option>
+  											  <option>SOOAD</option>
+  											  <option>BCE</option>
+  											  <option>WTL</option>
+                          </select>
+ 											</td>
+ 										</tr>
+ 										<tr>
+ 											<td>Submission Type :</td>
+ 											<td>
+ 													<select class="form-control" id="Submission_type">
+ 											 		<option>------------SELECT------------</option>
+  											  <option>Assignment</option>
+  											  <option>Experiment</option>
+  											  <option>Other</option>
+                          </select>
+ 											</td>
+ 										</tr>
+ 										<tr>
+ 											<td>Mode :</td>
+ 											<td>
+ 												<input name="mode" value="Softcopy" type="radio" /> Softcopy
+ 												&nbsp;&nbsp;&nbsp;
+												<input name="mode" value="Hardcopy" type="radio"/> Hardcopy
+ 											</td>
+ 										</tr>
+ 										<tr>
+ 											<td></td>
+ 											<td>
+ 												<!-- Softcopy -->
+ 												<div class="panel-collapse collapse Softcopy" id="Softcopy" >
+ 												 <emp>Attach File :</emp>&nbsp;&nbsp;
+ 												 <span  class="glyphicon glyphicon-paperclip" style="color:#e52a6f;font-size: 1em;"></span>
+ 												 <input type='file' class="btn btn-default">
+ 												</div>
+ 											
+ 												<!-- Hardcopy-->
+ 												<div class="panel-collapse collapse Hardcopy" id="Hardcopy" >
+ 													<emp>Submission Date : </emp>&nbsp;&nbsp;
+ 													<input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+ 												</div> 
+ 												</td>											 								
+ 										</tr>
+ 									</table>
+ 									<!-- Submit button -->
+ 									<center>
+    					    	<button class="btn  btn-md" name="submit" type="submit">Submit
+    					    		<span class="glyphicon glyphicon-ok"></span>
+    					    	</button>
+      						</center>
+ 								</div>
+ 							</div>
+ 						</form>
+ 					</div>
+  <!-- Submission Form Ends -->
+
+        <div class="modal-content tab-pane" id="list">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Topic</th>
+        <th>Deadline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OS</td>
+        <td>Linux</td>
+        <td>21/10/16</td>
+      </tr>
+      <tr>
+        <td>MP</td>
+        <td>8086</td>
+        <td>21/10/16</td>
+      </tr>
+      <tr>
+        <td>CN</td>
+        <td>TCP/IP</td>
+        <td>21/10/16</td>
+      </tr>
+    </tbody>
+  </table>
+
+        </div>
+        <div class="modal-content tab-pane" id="submitted">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Topic</th>
+        <th>Submitted</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OS</td>
+        <td>Linux</td>
+        <td>20/10/16</td>
+        <td>Unchecked</td>
+      </tr>
+      <tr>
+        <td>MP</td>
+        <td>Blahblah</td>
+        <td>20/10/16</td>
+        <td>Checked</td>
+      </tr>
+      <tr>
+        <td>CN</td>
+        <td>UDP</td>
+        <td>20/10/16</td>
+        <td>Unchecked</td>
+      </tr>
+    </tbody>
+  </table>
+ 				</div>
+ 			</div>
+ 		</div>	
+    </div>
+ 		<!--Partition- 3 -->
+
+ 		<div class="col-sm-12 col-md-3 " style="margin-right: 1%">
+ 			<div class="modal-dialog modal-sm">
+ 				<div class="modal-content">
+ 					<div class="modal-header" id="header">Assignments Submited</div>
+ 						
+ 				</div>
+ 			</div>
+ 		</div>
+	</div>
+  <div class="container-fluid status-box">
+  <center>
+    <div class="container-fluid stat_container">
+      <div class="status" id="submitted"  name="submitted"><b>10</b></div>
+      <div  class="stat_caption"><b>Submitted</b></div>
+    </div>
+    <div class="container-fluid stat_container">
+      <div class="status" id="Remaining" name="Remaining">15</div>
+      <div  class="stat_caption"><b>Remaining</b></div>
+    </div>
+    <div class="container-fluid stat_container">
+      <div class="status" id="checked" name="checked">6</div>
+      <div class="stat_caption" ><b>Graded</b></div>
+    </div>
+    <div class="container-fluid stat_container">
+      <div class="status" id="unchecked" name="unchecked">4</div>
+      <div  class="stat_caption"><b>Ungraded</b></div>
+    </div>
+    </center>
+  </div>
+</body>
+<script type="text/javascript">
+	$("input[name='mode']").click(function() {
+    var status = $(this).val();
+    if (status == 'Softcopy') {
+        $(".Softcopy").show();
+        $(".Hardcopy").hide();
+    }
+    else if(status=='Hardcopy'){
+    	$(".Hardcopy").show();
+    	$(".Softcopy").hide();
+    }
+     else {
+        $(".Softcopy").hide();
+        $(".Hardcopy").hide();
+    }
+});
+</script>
+</html>
+
