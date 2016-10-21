@@ -1,27 +1,32 @@
 body{
 	font-family: Helvetica, Arial;
-	background-color: black;
+	background-color: #eeeeee;
 }
-nav{
-	z-index: 100;
+a:hover, a:visited{
+	text-decoration: none !important;
 }
 .myNav{
 	background-color: white;
 	opacity: 1;
+	z-index: 100;
 }
-.navbar-brand{
+.myNav > *{
+	text-align: center;
+	font-weight: bold;
+}
+.glyphicon-menu-hamburger{
+	color: #882601;
+}
+.tab-content *{
+	background-color: white !important;
+	color: #062f4f;
+}
+.navbar-brand,.navbar-brand:hover, .navbar-brand:visited{
 	color: #882601;
 	font-size: 2em;
 }
 .active{
 	background-color: #eeeeee;
-}
-nav > *{
-	text-align: center;
-	font-weight: bold;
-}
-button *{
-	margin: 5px;
 }
 #contribute{
 	background-color: #062f4f;
@@ -93,15 +98,22 @@ button *{
 	font-weight: bold;
 	font-size: 1.5em;
 	cursor: pointer;
+	height: 80px;
+	border: 1px solid #813772;
+	border-radius: 15px;
+	background-color: white !important;
+	margin: 10px 0px;
 }
 .titles:hover{
 	border-left: 20px solid #813772;
 }
 .allContentModals{
-	overflow: auto;
+	overflow-y: hidden;
+	background-color: #eeeeee;
 }
-nav > div > div > ul > button{
-	margin: 10px;
+.contrastEffect{
+	color: #062f4f;
+	background-color: white;
 }
 .contrastEffect:hover{
 	background-color: #062f4f;
@@ -109,13 +121,24 @@ nav > div > div > ul > button{
 }
 .bodyContent{
 	height: 1500px;
+	padding: 10px;
+	border: 1px solid #813772;
+	border-radius: 15px;
+	margin-top: 10px;
+	background-color: white !important;
 }
-.contrastEffect{
-	color: #062f4f;
-	background-color: white;
-}
-input, form > button{
+input, button{
 	margin: 10px;
 	padding: 5px;
+}
+.slideLeftToRight{
+	width: 0%;
+	height: 5px;
+	background-color: #882601;
+	margin: 0px;
+	padding: 0px;
+}
+.colorBlue{
+	background-color: blue;
 }
 /* Dynamic content's CSS */
