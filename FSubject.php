@@ -52,6 +52,10 @@ function dsplyq(id)
   }
 }
 </script>
+<script src = "jQuery/jquery-3.1.1.min.js"></script>
+<script src = "jQuery/jquery-2.2.4.min.js"></script>
+<script src = "bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src = "customJS/forum.js"></script>
 <title>Subjects</title>
 </head>
 <body>
@@ -61,7 +65,7 @@ if(isset ($_SESSION["user_status"]) )
 {
 $sem=$_SESSION['sem'];
 $branch=$_SESSION['branch'];
-include_once("Fdatabase.php"); 
+include_once("Fdatabase.php");
 $sql="select * from subjects where sem='$sem' and branch='$branch'";
 $result=mysqli_query($conn,$sql);
 $result=mysqli_query($conn,$sql);
@@ -70,7 +74,7 @@ $count=0;
 while($count<$rowcount)
 {
 $row=mysqli_fetch_array($result);
-echo '&nbsp<span id="'.$row["s_id"].'" onclick="dsplyq(this.id)">'.$row["s_name"].'</span>&nbsp';
+echo '<span id="'.$row["s_id"].'" onclick="dsplyq(this.id)">'.$row["s_name"].'</span>&nbsp';
 $count++;
 }
 echo '<div id="content">';

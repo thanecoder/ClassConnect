@@ -1,7 +1,7 @@
 <?php
 include_once("Fdatabase.php");
 $aid=$_GET['aid'];
-$sql="update answers set upvotes=upvotes+1 where a_id=$aid";
+$sql="update answers set downvotes=downvotes+1 where a_id=$aid";
 $result=mysqli_query($conn,$sql);
 if(!$result)
 	{
@@ -15,7 +15,7 @@ if(!$result)
 		if($rowcount>0)
 		{
 			$row=mysqli_fetch_array($result);
-			echo $row['upvotes'];
+			echo $row['downvotes'];
 		}
 		else
 		{
