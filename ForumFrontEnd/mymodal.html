@@ -1,0 +1,38 @@
+<html>
+<head>
+	<link rel = "stylesheet" href = "bootstrap-3.3.7/css/bootstrap.min.css">
+	<style>
+		button{
+				position: relative;
+				margin: -20px -50px;
+				top: 50%;
+				left: 50%;
+		}
+		div{
+			width: 100%;
+			height: 30%;
+		}
+		iframe{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+
+	<div class = "col-lg-6">
+		<button class = "btn btn-primary">Go to Forum</button>
+	</div>
+	<div class = "col-lg-6">
+		<iframe src = "forumhome.html"></iframe>
+
+
+	<script src = "jQuery/jquery-3.1.1.min.js"></script>
+	<script src = "jQuery/jquery-2.2.4.min.js"></script>
+	<script src = "bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$("button").on('click', function(){
+			window.location.href = "forumhome.html";
+		})
+	</script>
+</body>
