@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
+
+    <title>ClassConnect</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    
+<style>
+
+<!--     Sidebar nav styles        -->
+
+
+.sidebar-nav 
+{
+    position: absolute;
+    top: 0;
+    width: 220px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li 
+{
+    position: relative; 
+    line-height: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.sidebar-nav li:before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 3px;
+    background-color: #1c1c1c;
+    -webkit-transition: width .2s ease-in;
+      -moz-transition:  width .2s ease-in;
+            transition: width .2s ease-in;
+
+}
+.sidebar-nav li:first-child a 
+{
+    color: #fff;
+    background-color: #1a1a1a;
+}
+.sidebar-nav li:nth-child(2):before 
+{
+    background-color: #ec1b5a;   
+}
+.sidebar-nav li:nth-child(3):before 
+{
+    background-color: #79aefe;   
+}
+.sidebar-nav li:nth-child(4):before 
+{
+    background-color: #314190;   
+}
+.sidebar-nav li:nth-child(5):before 
+{
+    background-color: #279636;   
+}
+.sidebar-nav li:nth-child(6):before 
+{
+    background-color: #7d5d81;   
+}
+.sidebar-nav li:nth-child(7):before 
+{
+    background-color: #ead24c;   
+}
+sidebar-nav li:nth-child(8):before 
+{
+    background-color: #2d2366;   
+}
+<!--.sidebar-nav li:nth-child(9):before 
+{
+    background-color: #35acdf;   
+}-->
+.sidebar-nav li:hover:before,
+.sidebar-nav li.open:hover:before 
+{
+    width: 100%;
+    -webkit-transition: width .2s ease-in;
+      -moz-transition:  width .2s ease-in;   
+            transition: width .2s ease-in;
+
+}
+
+.sidebar-nav li a 
+{
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    padding: 10px 15px 10px 30px;    
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus
+{
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.sidebar-nav > .sidebar-brand 
+{
+    height: 65px;
+    font-size: 20px;
+    line-height: 44px;
+}
+.sidebar-nav .dropdown-menu 
+{
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #222;
+    box-shadow: none;
+}
+</style>
+	
+	
+</head>
+
+<body>
+
+ <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                     ClassConnect
+                    </a>
+                </li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Semester<span class="caret"></span></a>
+				<ul class="dropdown-menu " role="menu">
+<li><a href="" >--Select--</a></li>
+<li><a href="" >1</a></li>
+<li><a href="" >2</a></li>
+<li><a href="" >3</a></li>
+<li><a href="" >4</a></li>
+<li><a href="" >5</a></li>
+<li><a href="" >6</a></li>
+<li><a href="" >7</a></li>
+<li><a href="" >8</a></li>
+				</ul>
+				</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Subject<span class="caret"></span></a>
+		<ul class="dropdown-menu" role="menu">
+		<li><a href="" >--Select--</a></li>
+		<li><a href="">Microprocessor</a></li>
+		<li><a href="">Operating System</a></li>
+		<li><a href="">Computer Networks</a></li>
+		<li><a href="">SOOAD</a></li>
+		<li><a href="">BCE</a></li>
+		<li><a href="">WTL</a></li>
+		</ul>
+</li>		
+				
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Check Assignment<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="" >--Select--</a></li>
+<li  data-target="#risc" data-toggle="tab"><a href="">RISC</a></li>
+<li data-target="#cisc" data-toggle="tab"><a href="">CISC</a></li>
+<li><a href="">Pentium</a></li>
+<li><a href="">8086</a></li>
+</ul>            
+</li>
+
+				<li  data-target="#newa" data-toggle="tab">
+                <a href="#" >Create Assigment</a>
+				</li>
+				
+                <li data-target="#ho" data-toggle="tab">
+                    <a href="#">Home</a>
+                </li>
+        </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="content-wrapper">
+            <div class="tab-content">
+                
+                    <div class="tab-pane" id="newa">
+<h1>New Assigment</h1>
+<div class="dropdown">
+
+SEMESTER
+</div>
+<select  class="form-control" name="semester" id="semester-list" class="demoInputBox" onChange="getSubject(this.value);">
+<option  value="">Select semester</option>
+		<option value='1'>1</option>
+		<option value='2'>2</option>
+	<option value='3'>3</option>
+	<option value='4'>4</option>
+	<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+</select>
+
+<br>
+
+<div class="dropdown">
+
+SUBJECT
+<select class="form-control" name="subject" id="subject-list" class="demoInputBox">
+<option value="">Select subject</option>
+<option value='mp'>Microprocessor</option>
+<option value='os'>Operating System</option>
+<option value='cn'>Computer Networks</option>
+<option value='sooad'>SOOAD</option>
+<option value='bce'>BCE</option>
+<option value='wtl'>WTL</option>
+</select>
+</div>
+<br>
+<br>
+
+<br>
+<div class="form-group">
+      <label for="inputlg">Description</label>
+      <input class="form-control input-lg" id="inputlg" type="text">
+</div>
+
+<br>
+<a href="" class="btn btn-default">UPLOAD(if required)<input type='file'id='file' name='file'><span class="glyphicon glyphicon-folder-open"></span></a>
+<br><br>
+<div class="form-data"  >
+ 													Submission Date : 
+ 													<input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="date"/>
+ 	<!-- Hardcopy-->
+ 																						</div> 
+<br><br>
+<a href="" class="btn btn-info">Post Assignment<span class="glyphicon glyphicon-ok"></span></a>
+                      
+                    </div>
+		
+<div class="tab-pane" id="cisc">
+                        <h2>CISC</h2>
+ 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Date of Submission</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-target="#101457" data-toggle="modal">101456</td>
+        <td>28/9/2016</td>
+        <td>checked</td>
+      </tr>
+      <tr>
+        <td>101428</td>
+        <td>29/9/2016</td>
+        <td>unchecked</td>
+      </tr>
+     
+    </tbody>
+  </table>
+  <!-- Modal -->
+  <div class="modal fade" id="101457" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Grading</h4>
+        </div>
+        <div class="modal-body">
+          <p>Roll No:101456</p>
+		  <div class="container">
+	<div class="row">
+	<!--	PDF in modal preview using Easy Modal Plugin-->
+        <a class="btn btn-default view-pdf" href="http://www.bodossaki.gr/userfiles/file/dummy.pdf">View PDF</a>        
+	</div>
+</div>
+<p>Submission Date:28/9/2016</p>
+<div class="form-group">
+      <label for="inputlg">Remark</label>
+      <input class="form-control input-lg" id="inputlg" type="text">
+    </div>
+	<form>
+	<h6>Grade<h6>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">A
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">B
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">C
+    </label>
+	<label class="radio-inline">
+      <input type="radio" name="optradio">D
+    </label>
+  <label class="radio-inline">
+      <input type="radio" name="optradio">REDO
+    </label>
+
+	
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+                    </div>
+                <div class="tab-pane" id="risc">
+                        <h2>RISC</h2>
+ 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Date of Submission</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-target="#101456" data-toggle="modal">101456</td>
+        <td>28/9/2016</td>
+        <td>checked</td>
+      </tr>
+      <tr>
+        <td>101428</td>
+        <td>29/9/2016</td>
+        <td>unchecked</td>
+      </tr>
+      <tr>
+        <td>101431</td>
+        <td>30/9/2016</td>
+        <td>unchecked</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Modal -->
+  <div class="modal fade" id="101456" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Grading</h4>
+        </div>
+        <div class="modal-body">
+          <p>Roll No:101456</p>
+		  <div class="container">
+	<div class="row">
+	<!--	PDF in modal preview using Easy Modal Plugin-->
+        <a class="btn btn-default view-pdf" href="http://www.bodossaki.gr/userfiles/file/dummy.pdf">View PDF</a>        
+	</div>
+</div>
+<p>Submission Date:28/9/2016</p>
+<div class="form-group">
+      <label for="inputlg">Remark</label>
+      <input class="form-control input-lg" id="inputlg" type="text">
+    </div>
+	<form>
+	<h6>Grade<h6>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">A
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">B
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">C
+    </label>
+	<label class="radio-inline">
+      <input type="radio" name="optradio">D
+    </label>
+  <label class="radio-inline">
+      <input type="radio" name="optradio">REDO
+    </label>
+
+	
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+                    </div>
+					
+					
+					
+					
+<div class="tab-pane" id="ho">
+                        <h1>Home</h1>
+                        
+                    </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+
+</html>
