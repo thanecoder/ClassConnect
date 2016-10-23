@@ -1,14 +1,40 @@
+/*To hide scroll bar but still be able to scroll in chrome*/
+::-webkit-scrollbar{
+    display: none;
+}
+/*When javascript is disabled*/
+noscript{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	font-weight: bolder;
+	font-size: 3em;
+	padding: 10px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	z-index: 2000;
+}
 body{
 	font-family: Helvetica, Arial;
 	background-color: #eeeeee;
 }
-a:hover, a:visited{
+/*For no underline on anchors*/
+a, a:hover, a:visited{
 	text-decoration: none !important;
+}
+/*Navbar toggle on mobile screens*/
+#forDropdown{
+	position: fixed;
+	right: 5%;
+	top: 0%;
+	border: 1px solid #882601;
 }
 .myNav{
 	background-color: white;
 	opacity: 1;
-	z-index: 100;
+	z-index: 10;
 }
 .myNav > *{
 	text-align: center;
@@ -16,6 +42,7 @@ a:hover, a:visited{
 }
 .glyphicon-menu-hamburger{
 	color: #882601;
+	padding: 5px;
 }
 .tab-content *{
 	background-color: white !important;
@@ -28,8 +55,9 @@ a:hover, a:visited{
 .active{
 	background-color: #eeeeee;
 }
+/*Buttons for styling*/
 #contribute{
-	background-color: #062f4f;
+	background-color: #813772;
 	color:white;
 	position: fixed;
 	right: 10%;
@@ -42,24 +70,11 @@ a:hover, a:visited{
 	z-index: 100;
 }
 #contribute:hover{
-	color: #062f4f;
+	color: #813772;
 	background-color: white;
 }
-#addQ{
-	background-color: #062f28;
-	color:white;
-	position: fixed;
-	right: 10%;
-	bottom: 5%;
-	height: 70px;
-	width: 70px;
-	font-weight: bold;
-	font-size: 1.5em;
-	border-radius: 50%;
-	z-index: 50;
-}
-#addA{
-	background-color: #062f00;
+#searchQ{
+	background-color: blue;
 	color: white;
 	position: fixed;
 	right: 10%;
@@ -71,8 +86,21 @@ a:hover, a:visited{
 	border-radius: 50%;
 	z-index: 50;
 }
+#addQ{
+	background-color: green;
+	color:white;
+	position: fixed;
+	right: 10%;
+	bottom: 5%;
+	height: 70px;
+	width: 70px;
+	font-weight: bold;
+	font-size: 1.5em;
+	border-radius: 50%;
+	z-index: 50;
+}
 #collapseExpand{
-	background-color: #882601;
+	background-color: red;
 	color: white;
 	position: fixed;
 	bottom: 5%;
@@ -86,13 +114,14 @@ a:hover, a:visited{
 }
 #collapseExpand:hover{
 	background-color: white;
-	color: #882601;
+	color: red;
 }
-#contribute:focus, #contribute:active, #addQ:focus, #addQ:active, #addA:focus, #addA:active, #collapseExpand:active, #collapseExpand:focus{
+#searchQ:focus, #searchQ:active, #contribute:focus, #contribute:active, #addQ:focus, #addQ:active, #collapseExpand:active, #collapseExpand:focus{
 	outline: none;
 }
 .titles{
 	color: #813772;
+	padding: 25px;
 	background-color: white;
 	text-align: center;
 	font-weight: bold;
@@ -108,7 +137,6 @@ a:hover, a:visited{
 	border-left: 20px solid #813772;
 }
 .allContentModals{
-	overflow-y: hidden;
 	background-color: #eeeeee;
 }
 .contrastEffect{
@@ -120,7 +148,8 @@ a:hover, a:visited{
 	color: white;
 }
 .bodyContent{
-	height: 1500px;
+	overflow: auto;
+	height: auto;
 	padding: 10px;
 	border: 1px solid #813772;
 	border-radius: 15px;
@@ -131,6 +160,52 @@ input, button{
 	margin: 10px;
 	padding: 5px;
 }
+/*Loading animation*/
+.gly-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  font-size: 4em;
+  position: relative;
+  top: 5%;
+  left: 45%;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/*Underline/Overline animation*/
 .slideLeftToRight{
 	width: 0%;
 	height: 5px;
@@ -139,6 +214,91 @@ input, button{
 	padding: 0px;
 }
 .colorBlue{
-	background-color: blue;
+	background-color: #062f4f;
 }
-/* Dynamic content's CSS */
+/*Custom modals*/
+.customModal{
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 1000;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+}
+.customModalContent{
+	z-index: 1001;
+	position: relative;
+	top: 10%;
+	height: auto;
+	background-color: white;
+	border: 2px solid #062f4f;
+	border-radius: 5px;
+	padding: 10px;
+}
+.customModalClose{
+	z-index: 1002;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	background-color: white;
+	color: #062f4f;
+}
+.questionThreadModal{
+	z-index: 1010;
+}
+.questionThreadModalContent{
+	z-index: 1011;
+}
+.questionThreadModalClose{
+	z-index: 1012;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	background-color: white;
+	color: #062f4f;
+}
+.profileModal{
+	z-index: 1020;
+}
+.profileModalContent{
+	z-index: 1021;
+}
+.profileModalClose{
+	z-index: 1022;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	background-color: white;
+	color: #062f4f;
+}
+.customModalClose:hover, .questionThreadModalClose:hover, .profileModalClose:hover{
+	background-color: #062f4f;
+	color: white;
+}
+.profile:hover, .logout:hover, .addQuestion:hover, .findQuestion:hover, .question:hover{
+	cursor: pointer;
+}
+#logoutResponse, #addQuestionResponse, #findQuestionResponse{
+	display: none;
+	padding: 10px;
+	font-weight: bold;
+	margin: 10px;
+	border-radius: 5px;
+}
+.customInputDesign{
+	position: relative;
+	padding: 5px;
+	margin: 10px;
+	width: 80%;
+	border-radius: 5px;
+	outline: none;
+}
+.customInputDesign:hover{
+	border: 2px solid #882601;
+}
+.customInputDesign:focus{
+	border: 2px solid #062f4f;
+}
