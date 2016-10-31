@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class Connect</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cuprum:700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <link href="css/responsive-calendar.css" rel="stylesheet">
+<!-- 	<link rel="stylesheet" type="text/css" href="sidenav.css"> -->
+	<link rel="stylesheet" type="text/css" href="submission.css">
+<body>
+<div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Class Connect
+                    </a>
+                </li>
+                <hr class="hr">
+                <li class="dropdown">
+                 <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subject<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                  <li>-------SELECT-------</li>
+                  <li><a href="">Microprocessor</a></li>
+                  <li><a href="">Operating System</a></li>
+                  <li><a href="">Computer Networks</a></li>
+                  <li><a href="">SOOAD</a></li>
+                  <li><a href="">BCE</a></li>
+                  <li><a href="">WTL</a></li>
+                  </ul>
+                </li> -->  
+                <!--<li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assignments<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                  <li>-------SELECT-------</li>
+                  <li data-toggle="tab" data-target="#list"><a href="">Assign</a></li>
+                  <li><a href="">Assign System</a></li>
+                  <li><a href="">Assign Networks</a></li>
+                  <li><a href="">Assign</a></li>
+                  <li><a href="">Assign</a></li>
+                  <li><a href="">Assign</a></li>
+                  </ul>
+                </li>-->
+				 <li data-toggle="tab" id="Assign_listli" data-target="#list">
+                    <a href="#" onclick="getassign(1)" >Assignment List</a>
+                </li>
+                <li data-toggle="tab" id="Checked_li" data-target="#checkedassign">
+                    <a href="#" onclick="getassign(3)" >Checked Assignments</a>
+                </li>
+                <li  data-toggle="tab" id="Unchecked_li" data-target="#uncheckedassign">
+                    <a href="#" onclick="getassign(2)" >Unchecked Assignments</a>
+                </li>
+                <li data-target="#Submission" data-toggle="tab">
+                    <a href="">Submit Assignment</a>
+                </li>
+                <li data-target="#Home" class="active" data-toggle="tab">
+                    <a href="#">Home</a>
+                </li>
+                <li class="logout" id="logout">
+                  <button class="btn logoutbtn" data-toggle="modal" data-target="#confirm-lo">Logout <span class="glyphicon glyphicon-log-out"></span></button>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+         
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        <!-- Nav Control -->
+        	 <div class="barcontainer" >
+            <div id="b1"></div>
+            <div id="b2"></div>
+            <div id="b3"></div>
+          </div>
+          <!-- /Nav Control -->
+
+          <div class="container-fluid">
+            <div class="load-bar" id="load-bar">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>                
+            </div>
+            
+            <div class="alert" id="alert"><b>Submitted Successfully!</b></div>
+            <br><br><br>
+            <div class="row">
+              <div class="col-lg-12">
+
+                <div class="modal fade" tabindex="-1" id="confirm-lo">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                          <span>&times;</span>
+                        </button>
+                        <h4 class="modal-title"><p>Are you sure you want to Logout?</p></h4>
+                      </div>
+                      <div class="modal-body">
+                        <center>
+                          <button type="button" class="btn btn-default btn-md" >Yes</button>
+                            &nbsp;&nbsp;&nbsp;
+                          <button type="button" class="btn btn-default btn-md" data-dismiss="modal">No</button>
+                       </center>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- All the info about assignments will be displayed here  ,Redirection by adding <a data toggle="modal" data-target="togglemodal"></a>  -->
+                <div class="modal fade" tabindex="-1" id="togglemodal" >
+                  <div class="modal-dialog modal-lg" >
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <center><h3 class="modal-title toggle-header" >Assignment Details</h3></center>
+                      </div>
+                      <div class="modal-body">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+                <!-- MOdal End -->
+                <div class="tab-content"> <!-- All tabs are in this div-->
+                <!-- Submission Panel -->
+                  <div id="Submission" class="tab-pane">
+                      <div class="modal-dialog" style="width:80%;height:100%;">
+                        <div class="modal-content " >
+                          <form  action="#" enctype="multipart/form-data" method="post" id="submit_form">    <!-- Submission form Action -->
+                            <div class="modal-header" id="header"> Submission Portal </div>   <!--Modal Header-->
+                            <div class="modal-body">          <!-- Modal Body-->
+                              <div class="form-group">
+                              <!-- Dyanamic Creation of Div(dropdown menu) from db (this is static)-->
+                                <table  class="table  submission-table ">   <!-- Table -->
+                                  <tr>
+                                    <td>Subject :</td>
+                                    <td>
+                                      <select class="form-control" id="Subject">
+                                        <option>------------SELECT------------</option>
+                                        <option>Microprocessor</option>
+                                        <option>Operating System</option>
+                                        <option>Computer Networks</option>
+                                        <option>SOOAD</option>
+                                        <option>BCE</option>
+                                        <option>WTL</option>
+                                        </select>
+                                    </td>
+                                  </tr>                   
+                                  <tr>
+                                    <td>Mode :</td>
+                                    <td>
+                                      <input name="mode" value="Softcopy" type="radio" /> Softcopy
+                                      &nbsp;&nbsp;&nbsp;
+                                      <input name="mode" value="Hardcopy" type="radio"/> Hardcopy
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td>
+                                      <!-- Softcopy -->
+                                      <div class="panel-collapse collapse Softcopy" id="Softcopy" >
+                                       <emp>Attach File :</emp>&nbsp;&nbsp;
+                                       <span  class="glyphicon glyphicon-paperclip" ></span>
+                                       <input type='file' name="assign" id="assign" class="btn btn-default" />
+                                      </div>
+                                    
+                                      <!-- Hardcopy-->
+                                      <div class="panel-collapse collapse Hardcopy" id="Hardcopy" >
+                                        <emp>Submission Date : </emp>&nbsp;&nbsp;
+                                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                                      </div> 
+                                      </td>   
+                                  </tr>
+                                </table>
+                                <!-- Submit button -->
+                                <center>
+                                  <button class="btn  " name="submit" type="submit" id='submit' onclick="return Confirmation()"><b>Submit</b>
+                                    <span class="glyphicon"></span>
+                                  </button>
+                                </center>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                  </div>
+                </div>
+
+
+
+                <!-- Submission ends -->
+                <!-- Home Panel -->
+                <div id="Home" class="tab-pane active">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header" id="header">Calender</div>                    
+                    </div>
+                  </div>
+                  <div class="responsive-calendar" style="height:50%;width: 100%;">
+                    <div class="controls">
+                      <a class="pull-left" data-go="prev"><span class=" glyphicon glyphicon-chevron-left">Prev</span></a>
+                      <h4><span data-head-year></span> <span data-head-month></span></h4>
+                      <a class="pull-right" data-go="next">Next<span class=" glyphicon glyphicon-chevron-right"></span></a>
+                    </div><hr/>
+                    <div class=" row day-headers">
+                      <div class="day header">Mon</div>
+                      <div class="day header">Tue</div>
+                      <div class="day header">Wed</div>
+                      <div class= "day header">Thu</div>
+                      <div class="day header">Fri</div>
+                      <div class="day header">Sat</div>
+                      <div class="day header">Sun</div>
+                    </div>  
+                    <div class="days" data-group="days">
+                      
+                    </div>
+                  </div>
+                  <div class="container status-box">
+                    <center>
+                      <div class="container-fluid stat_container">
+                        <div class="status" id="submitted"  name="submitted"><b>10</b></div>
+                        <div  class="stat_caption"><b>Submitted</b></div>
+                      </div>
+                      <div class="container-fluid stat_container">
+                        <div class="status" id="Remaining" name="Remaining">15</div>
+                        <div  class="stat_caption"><b>Remaining</b></div>
+                      </div>
+                      <div class="container-fluid stat_container">
+                        <div class="status" id="checked" name="checked">6</div>
+                        <div class="stat_caption" style="padding-left: 15px;"><b>Graded</b></div>
+                      </div>
+                      <div class="container-fluid stat_container">
+                        <div class="status" id="unchecked" name="unchecked">4</div>
+                        <div  class="stat_caption"><b>Ungraded</b></div>
+                      </div>
+                    </center>
+                  </div>
+
+                </div>
+                <!-- Home ends -->
+                
+        <!-- Checked Assignments  toggled to a already made modal"#togglemodal" -->
+                <div class="tab-pane" id="checkedassign">
+                  <div class="loader"></div>
+                  <div class="modal-dialog" style="width: 100%;height: auto;">
+                    <div class="modal-content">
+                      <div class="modal-header" id="header">Checked Assignments</div>                                                        
+                      <div class="modal-body" id="checkassign_ajax">
+                  <!-- <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Subject</th>
+                        <th>Topic</th>
+                        <th data-toggle="modal" data-target="togglemodal">Submitted</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>OS</td>
+                        <td>Linux</td>
+                        <td>20/10/16</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>MP</td>
+                        <td>Blahblah</td>
+                        <td>20/10/16</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>CN</td>
+                        <td>UDP</td>
+                        <td>20/10/16</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table> -->
+                     </div>  
+                    </div>
+                  </div>
+                </div>
+                  <!-- List of assignment -To be made dynamic,anchor tag add nhi kelay,would be same as we did in teacher's -->
+                <div class="tab-pane" id="list">
+                  <div class="loader" ></div>
+                  <div class="modal-dialog" style="width: 100%;height: auto;">
+                    <div class="modal-content">
+                      <div class="modal-header" id="header">Assignments List</div>                                                        
+                      <div class="modal-body" id="assignlist_ajax">
+                  <!--<table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Subject</th>
+                            <th>Topic</th>
+                            <th>Deadline</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>OS</td>
+                            <td>Linux</td>
+                            <td>21/10/16</td>
+                          </tr>
+                          <tr>
+                            <td>MP</td>
+                            <td>8086</td>
+                            <td>21/10/16</td>
+                          </tr>
+                          <tr>
+                            <td>CN</td>
+                            <td>TCP/IP</td>
+                            <td>21/10/16</td>
+                          </tr>
+                        </tbody>
+                    </table>  -->  
+                      </div>
+                    </div>
+                  </div>   
+                </div>
+                
+                <!-- Unchecked Assignments -->
+                <div class="tab-pane" id="uncheckedassign">
+                  <div class="loader"></div> 
+                  <div class="modal-dialog" style="width: 100%;height: auto;">
+                    <div class="modal-content">
+                      <div class="modal-header" id="header">Unchecked Assignments</div>                                                        
+                      <div class="modal-body" id="uncheckedassign_ajax">               
+                <!--   <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Subject</th>
+                        <th>Topic</th>
+                        <th >Submitted</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>OS</td>
+                        <td>Linux</td>
+                        <td data-toggle="modal" data-target="#togglemodal">20/10/16</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>MP</td>
+                        <td>Blahblah</td>
+                        <td>20/10/16</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>CN</td>
+                        <td>UDP</td>
+                        <td>20/10/16</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table> -->
+                  </div>
+                </div>
+               </div>
+              </div>
+
+            </div>
+           <!--  <button id="calender" class="btn btn-default"><span style="color:#000;" class ="glyphicon glyphicon-export" ></span></button>-->
+          </div>
+          </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="js/responsive-calendar.js"></script>
+  <script type="text/javascript" src="js/animateNumber.js"></script>
+  <script type="text/javascript" src="submission.js"></script>
+  <!-- <script>
+
+   window.toggle_count=0;
+   // $(document).ready(function(){
+   	function Sidenav(){
+   		if(toggle_count==0){
+   			$('#Mazasidenav').animate({
+   				width:"toggle",
+   			});
+   			$("#Page-content").animate({
+   				'left':'125px',
+   				'padding-top' :'0px'
+   			 });
+   			toggle_count=1;
+   		}
+   		else{
+
+   		}
+   	}
+   // });
+   </script> -->
+</body>
+</html>
+
