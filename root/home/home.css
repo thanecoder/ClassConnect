@@ -1,0 +1,98 @@
+a:focus, a:hover{
+	text-decoration: none !important;
+}
+.projectName{
+	text-align: center;
+	color: #062f4f !important;
+	border-bottom: 10px solid #062f4f;
+}
+.projectDescription{
+	text-align: center;
+	color: #882601;
+	font-weight: bolder;
+}
+.notice{
+	background: url('5kings.jpg');
+}
+.submission{
+	background: url('winter.jpg');
+}
+.forum{
+	background: url('Braavos.jpg');
+}
+.links{
+	border: 2px solid #062f4f;
+	border-radius: 5px;
+    height: 50%;
+    margin-bottom: 50px;
+    padding: 35%;
+    background-size: 100% 100%;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    background-position: center center;
+}
+.links:hover{
+    background-size: 150% 150%;
+}
+.noticeLink, .submissionLink, .forumLink{
+	position: absolute;
+	top: 45%;
+	left: 20%;
+	z-index: 10;
+	color: white !important;
+}
+@media screen and (min-width: 1601px){
+	.noticeLink, .submissionLink, .forumLink{
+		font-size: 3em;
+	}
+}
+@media screen and (max-width: 1600px){
+	.noticeLink, .submissionLink, .forumLink{
+		font-size: 2em;
+	}
+}
+.slideLeftToRight{
+	position: absolute;
+	z-index: 5;
+	top: 0px;
+	left: 0px;
+	width: 0%;
+	height: 100%;
+	background-color: #062f3f;
+	opacity: 0.4;
+	margin: 0px;
+	padding: 0px;
+}
+span{
+	font-size: 0.8em;
+}
+span > span{
+	font-size: 1em;
+}
+.welcomeMessage{
+	z-index: 10000;
+	position: fixed;
+	top: 0%;
+	border-bottom-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	border-left: 2px solid darkgreen;
+	border-right: 2px solid darkgreen;
+	border-bottom: 2px solid darkgreen;
+	text-align: center;
+	font-size: 3em;
+}
+/*When javascript is disabled*/
+noscript{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	font-weight: bolder;
+	font-size: 2em;
+	padding: 10px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	z-index: 2000;
+}
