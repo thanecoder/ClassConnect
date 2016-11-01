@@ -1,0 +1,118 @@
+::-webkit-scrollbar{
+    display: none;
+}
+body{
+	font-family: Helvetica;
+	background-color: #dddddd;
+}
+button, input, button:focus{
+	outline: none !important;
+}
+input:focus{
+	border-left: 0px;	
+	border-bottom: 2px solid #062f4f;
+}
+@media screen and (min-width: 1200px){
+	.forms{
+		position: fixed;
+		text-align: center;
+		top: 30%;
+		left: 35%;
+	}
+	.projectName{
+		position: fixed;
+		text-align: center;
+		top: 40%;
+		left: 35%;
+		z-index: -1;
+	}
+	h1{
+		font-size: 4em;
+		color: #062f4f;
+	}
+}
+@media screen and (max-width: 1199px){
+	.forms{
+		position: fixed;
+		text-align: center;
+		top: 20%;
+		left: 0%;
+		width: 100%;
+	}
+	.projectName{
+		position: fixed;
+		text-align: center;
+		top: 20%;
+		left: 0%;
+		width: 100%;
+		z-index: -1;
+	}
+	h1{
+		font-size: 3em;
+		color: #062f4f;
+	}
+}
+.forms:not(.response){
+	background-color: white !important;
+	border: 2px solid #062f4f;
+	padding: 20px;
+}
+form input, select{
+	padding: 5px;
+	margin: 10px 0px;
+	border: 0px;
+	border-left: 2px solid blue;
+}
+select *{
+	padding: 5px;
+	margin: 10px 0px;
+	border-radius: 5px;
+}
+.validateIcons{
+	padding: 5px;
+	margin: 10px 0px;
+}
+textarea{
+	resize: none;
+	overflow: hidden;
+}
+#signUpButton, #signInButton{
+	background-color: #062f4f !important;
+	color: white !important;
+}
+#signUpButton:hover, #signInButton:hover{
+	color: #062f4f !important;
+	background-color: white !important;
+	border: 2px solid #062f4f;
+}
+.glyphicon-ok{
+	color: green;
+}
+.glyphicon-remove{
+	color: red;
+}
+/*When javascript is disabled*/
+noscript{
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	font-weight: bolder;
+	font-size: 2em;
+	padding: 10px;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	z-index: 2000;
+}
+.response{
+	position: fixed !important;
+	top: 0%;
+	left: 0%;
+	text-align: center;
+	width: 100%;
+	padding: 15px;
+	font-size: 1.5em;
+	z-index: 1000;
+	border-bottom: 2px solid red;
+}
